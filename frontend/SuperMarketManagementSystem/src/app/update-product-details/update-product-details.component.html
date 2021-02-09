@@ -1,0 +1,44 @@
+<form>
+    <div class="container">
+      <h1 style="text-align: center;  color: #4CAF50;">Update Product Details</h1>
+      <hr>
+      <div class="form-group">
+      <label for="Name"><b>Product Name</b></label><br>
+      <input type="text" placeholder="Enter Product Name" name="Name" required  [(ngModel)]= "product.name"
+      class="not-allowed" disabled> <br>
+      
+      </div>
+      
+      <label for="Price"><b>Price</b></label><br>
+      <input type="text" placeholder="Enter Product Price" name="price" required [(ngModel)]= "product.price"><br>
+      
+      <div class="form-group">
+          <label for="description"><b>Description</b></label><br>
+          <input type= text required ngModel  placeholder="Enter Product Description" 
+          name="description" [(ngModel)]= "product.description" #description="ngModel" class="not-allowed" disabled>
+
+        </div>
+
+        <div class="form-group">
+          <label for="unit"><b>Unit</b></label><br>
+          <input type= text required ngModel  placeholder="Enter the unit" 
+          name="unit" [(ngModel)]= "product.unit" #description="ngModel" class="not-allowed" disabled>
+
+        </div>
+      
+      <div class="form-group">
+      <label for="Quantity"><b>Quantity</b></label><br>
+      <input type= text required ngModel placeholder="Enter Product Quantity" name="quantity" [(ngModel)]= "product.quantity" #quantity="ngModel" >
+      <div class="alert alert-danger" *ngIf="!quantity.valid">Quantity is required</div>
+    </div>
+
+      <!-- <label for="unit"><b>Unit</b></label><br><br>
+      <select class="form-control" id="unit" required>
+        <option *ngFor="let unit of unit" [value]="unit">{{unit}}</option>
+      </select><br> -->
+       
+        <button type="button" [routerLink]="['../Admin-home']" class="cancelbtn">Back</button> &nbsp; &nbsp; &nbsp; &nbsp;
+        <button type="button" class="signupbtn" (click)="updateProductToDb()">Submit</button>   
+    
+    </div>
+  </form>

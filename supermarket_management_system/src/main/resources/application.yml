@@ -1,0 +1,33 @@
+spring:
+    profiles: dev
+    datasource:
+        url: jdbc:mysql://localhost:3306/SupermarketManagementSystem?verifyServerCertificate=false&useSSL=false&requireSSL=false
+        username: root
+        password: password
+        driver-class-name: com.mysql.jdbc.Driver
+        testOnBorrow: true
+        validationQuery: SELECT 1
+    jpa:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+                ddl-auto: update
+                show_sql: true
+server:
+  port: 9090
+---
+spring:
+  profiles: test
+  datasource:  
+      url: jdbc:mysql://localhost:3306/test_supermarketmanagementsystem
+      username: root
+      password: password
+      driver-class-name: com.mysql.jdbc.Driver
+      test-on-borrow: true
+      validation-query: SELECT 1 FROM dual
+  jpa:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+                ddl-auto: update
+                show_sql: true
+server:
+  port: 9090

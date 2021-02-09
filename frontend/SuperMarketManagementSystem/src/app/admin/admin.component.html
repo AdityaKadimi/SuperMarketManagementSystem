@@ -1,0 +1,22 @@
+<form (submit)="loginAdmin($event)">
+     <h1>Admin Login</h1>
+    <div class="formcontainer">
+
+<!-- <input type="button" value="Submit" [routerLink]="['../admin-functions']" class="btn"> -->
+<hr/>
+<!-- <input type="button" value="Admin" [routerLink]="['../Admin-home']" class="btn"> -->
+<div class="container">
+       
+        <label for="uname"><b>Username</b></label><br>
+        <input type="text" placeholder="Enter Username" [(ngModel)]= "username" name="username" required><br>
+        
+        <label for="psw"><b>Password</b></label><br>
+        <input type="password" placeholder="Enter Password" [(ngModel)]= "password" name="password" required><br>
+          
+</div>
+<button type="submit" (click)=checkLogin() >Submit</button>
+</div>
+
+    
+
+</form>

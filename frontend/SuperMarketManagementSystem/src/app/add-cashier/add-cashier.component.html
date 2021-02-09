@@ -1,0 +1,37 @@
+<form>
+    <div class="container">
+      <h1 style="text-align: center;  color: #4CAF50;">Add cashier Details</h1>
+      <hr>
+      <!-- <div class="form-group">
+        <label for="username"><b>Username</b><br></label>
+        <input type="text" placeholder="Enter a new Username" name="username" required [(ngModel)]= "cashier.username" class="form-control" formControlName="username" [ngClass]="{'is-invalid' : 
+      form.get('username').touched && form.get('username').invalid}" /><br>
+       <div class="invalid-feedback">
+        <div> Username name is required</div>
+       </div>
+      </div> -->
+
+      <label for="Name"><b>Username</b><br></label>
+      <input type="text" placeholder="Enter username" name="username" required [(ngModel)]= "cashier.username" ><br>
+      
+       
+      <label for="Name"><b>Name</b><br></label>
+      <input type="text" placeholder="Enter Name" name="name" required [(ngModel)]= "cashier.name" ><br>
+      
+      <label for="Contact Number"><b>Contact Number</b></label><br>
+      <input type="text" placeholder="Enter Contact Number" name="contact" required [(ngModel)]= "cashier.contact" ><br>
+     
+      <label for="email"><b>Email</b></label><br>
+      <input type="text" placeholder="Enter Email" name="email" required [(ngModel)]= "cashier.email" ><br>
+      
+      <label for="psw"><b>Password</b></label><br>
+      <input type="password" placeholder="Enter Password" name="password" required  [(ngModel)]= "cashier.password" ><br>
+
+      <div class="clearfix">
+           
+        <button type="button" [routerLink]="['../Admin-home']" class="cancelbtn">Cancel</button>
+        <button type="button" class="signupbtn" (click)="addcashier()">Add Cashier</button> 
+        <!-- <button type="submit" class="signupbtn">Add Cashier</button> -->
+      </div>
+    </div>
+  </form>

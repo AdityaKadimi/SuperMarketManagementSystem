@@ -1,0 +1,31 @@
+<form #myform="ngForm"> 
+    <div class="container">
+      <h1 style="text-align: center;  color: #4CAF50;">Add Product Details</h1>
+      <hr>
+      <!-- <label for="Product_Id"><b>Product Id</b></label><br>
+      <input type="text" placeholder="Enter a Product Id" name="Product_Id" required [(ngModel)]= "product.name" ><br> -->
+      <label for="Product_Name"><b>Product Name</b></label><br>
+      <input type="text" placeholder="Enter Product Name" name="Product_Name" required  [(ngModel)]= "product.name "> <br>
+      <label for="Price"><b>Price</b></label><br>
+      <input type="text" placeholder="Enter Product Price" name="price" required [(ngModel)]= "product.price"><br>
+      <label for="Description"><b>Quantity</b></label><br>
+      <input type="text" placeholder="Enter Product Quantity" name="quantity" required [(ngModel)]= "product.quantity" ><br>
+      <label for="Description"><b>Units</b></label><br>
+      <mat-form-field>                                
+        <mat-select [(ngModel)]="product.unit" name="description">
+          <mat-option>{{product.unit}}</mat-option>
+          <mat-option *ngFor="let unit of unitvalues" [value]="unit">{{unit}}</mat-option>
+        </mat-select>
+
+    </mat-form-field>
+    <br>
+   
+      <label for="Description"><b>Description</b></label><br>
+      <input type="text" placeholder="Enter Product Description" name="description" required [(ngModel)]= "product.description" ><br>
+     
+      <div class="clearfix">
+        <button type="button" [routerLink]="['../Admin-home']" class="cancelbtn">Cancel</button>
+        <button type="button" class="signupbtn" (click)="addproduct()" [disabled]="!myform.form.valid">Add Product</button>   
+      </div>
+    </div>
+  </form>

@@ -1,0 +1,108 @@
+<div class="container">
+ 
+  <h1 style="text-align: center;  color: #4CAF50;"> Delete Product </h1>
+  <hr>
+
+    <form #myform="ngForm" (ngSubmit)="onSubmit()">
+    <!-- <form class="example" style="  margin:auto;max-width:300px">
+        <input type="text" id - "search2" nplaceholder="Search.." name="search2" class="form-control"
+       required [(ngModel)]="products.search2" #search2="ngModel">
+        
+      <div *ngIf="search2.errors.required">
+            Name is required.
+          </div> -->
+    
+    <!-- 
+              <div class="form-group">
+                    <label for="unit">unit</label>
+                    <select class="form-control" id="unit" required>
+                      <option *ngFor="let unit of unit" [value]="unit">{{unit}}</option>
+                    </select>
+                  </div> -->
+    
+                  
+          <!-- <div class="form-group">
+                <label for="search2">Enter the product you want to delete</label><br>
+                <input type="text" class="form-control" id="search2" placeholder="Type text here"
+                required
+                [(ngModel)]="model.search2" name="search2" >
+             </div> -->
+    
+    
+       
+        <!-- <button type="submit" [routerLink]="['../update-products1']">Go</button> -->
+        <!-- <button type="submit" class="btn btn-success"
+         [disabled]="!myform.form.valid"
+         (click)=onSubmit()
+         >Go</button> -->
+      </form>
+
+     
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      </mat-form-field>
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+       
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                          >
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)"
+                          >
+            </mat-checkbox>
+          </td>
+        </ng-container>
+      
+       
+        <ng-container matColumnDef="product_id">
+          <th mat-header-cell *matHeaderCellDef> ID. </th>
+          <td mat-cell *matCellDef="let element"> {{element.product_id}} </td>
+        </ng-container>
+      
+  
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+      
+       
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef> Quantity </th>
+          <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        </ng-container>
+      
+      
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="unit">
+          <th mat-header-cell *matHeaderCellDef> Unit </th>
+          <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            (click)="selection.toggle(row)">
+        </tr>
+      </table>
+       
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+       
+      <button type="button" [routerLink]="['../Admin-home']" class="cancelbtn">Back</button>
+        <button type="button" class="signupbtn" (click)="removeSelectedRows()">Remove Product</button>   

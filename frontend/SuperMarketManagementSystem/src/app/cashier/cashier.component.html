@@ -1,0 +1,19 @@
+<form>
+    <h1>Cashier Login</h1>
+    <div class="formcontainer">
+    <hr/>
+    
+    <div class="container">
+            <label for="uname"><strong>Username</strong></label><br>
+            <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="username" required><br>
+
+      <label for="psw"><strong>Password</strong></label><br>
+    <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="password" required><br>
+
+    </div>
+     <button type="submit" (click) = "checkLogin()" >Submit</button>
+    <div class="container" style="background-color: #eee"></div>
+    </div>
+    </form>
+
+

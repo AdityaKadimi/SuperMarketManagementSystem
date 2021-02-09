@@ -1,0 +1,123 @@
+
+<div class="topnav" >
+  <div style="display: inline-block; text-align: center; width: 90%;">
+  <h1 style="color:whitesmoke">Supermarket Management System</h1>
+</div>
+    <div class="wrap  top-right">
+        <!-- <p>
+                Welcome {{message.username}}
+        </p>  -->
+        <button class=" logout" value="Logout" routerLink="/admin-logout" style="padding-top:0%"> Logout </button>
+      
+     </div>
+    
+  </div>
+  <!-- <div class="top-left">Welcome {{message.username}}..!!</div> -->
+
+
+  <!-- 
+<div class="topnav">
+    <a input type="button" value="Add Product" [routerLink]="['../addProduct']" class="btn"> Add Product</a>
+    <a input type="button" value="Add Cashier" [routerLink]="['../addCashier']" class="btn"> Add Cashier</a>
+   
+</div> -->
+
+<div style="background-color:#dbd9d9;padding: 6px;"> 
+<div class="wrap alignButton">    
+  <button class="button button1" [routerLink]="['../addCashier']">Add Cashier</button>
+</div>
+<!-- <div class="wrap alignButton">
+    <button class="button button3" [routerLink]="['../deleteProduct']" >Delete Product</button>
+</div> -->
+<div class="wrap alignButton">
+    <button class="button button2" [routerLink]="['../addProduct']">Add Product </button>
+</div>
+<div class="wrap alignButton">
+    <button class="button button4" [routerLink]="['../updateProduct']">Update Product</button>
+ 
+</div> 
+<div class="wrap alignButton">
+    <button class="button button5" [routerLink]="['../deleteCashier']">Delete Cashier</button>
+
+</div>
+
+<div class="wrap alignButton">
+    <button class="button button5" [routerLink]="['../view-transactionDetails']">View Transactions</button>
+
+</div>
+
+     
+    </div>
+<h1 style=" color: #4CAF50; text-align: center;">INVENTORY LOOKUP</h1>
+      <hr>
+    <div style="padding-top: 1%;padding-left: 3%;padding-right: 3%;">
+        <!-- <div class="top-left">Welcome {{message.username}}..!!</div> -->
+
+
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+          </mat-form-field>
+          
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                              [checked]="selection.hasValue() && isAllSelected()"
+                              [indeterminate]="selection.hasValue() && !isAllSelected()"
+                              >
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                              (change)="$event ? selection.toggle(row) : null"
+                              [checked]="selection.isSelected(row)"
+                              >
+                </mat-checkbox>
+              </td>
+            </ng-container>
+    
+         
+            <ng-container matColumnDef="product_id">
+              <th mat-header-cell *matHeaderCellDef> Id. </th>
+              <td mat-cell *matCellDef="let element"> {{element.product_id}} </td>
+            </ng-container>
+          
+            
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="unit">
+              <th mat-header-cell *matHeaderCellDef> Unit </th>
+              <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
+            </ng-container>
+          
+           
+            <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Price </th>
+              <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef> Description </th>
+              <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            (click)="selection.toggle(row)"
+            ></tr>
+    
+          </table>
+    
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    
+    </div>
+   
